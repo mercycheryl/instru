@@ -1,0 +1,88 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{geometry}
+\geometry{margin=1in}
+\title{Ejercicios de Instrumentación Industrial}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Ejercicio 2: Sensor capacitivo y caudalímetro ultrasónico}
+
+\subsection*{Datos:}
+\begin{itemize}
+    \item Sensor capacitivo: cilindros de aluminio de 8 cm (Dext) y 6 cm (Dint)
+    \item Longitud del sensor: 8 m
+    \item Capacidad medida: 3055.63 pF
+    \item Aceite SAE 10:
+    \begin{itemize}
+        \item Densidad relativa: 0.877
+        \item Constante dieléctrica relativa: 2.3
+    \end{itemize}
+    \item Tubería:
+    \begin{itemize}
+        \item Diámetro: 150 mm
+        \item Pérdidas totales: 3 m
+    \end{itemize}
+    \item Velocidad del sonido en aceite: 1770 m/s
+    \item $\varepsilon_0 = 8.854$ pF/m
+\end{itemize}
+
+\subsection*{Solución:}
+
+\begin{enumerate}
+    \item Cálculo del nivel de aceite ($h$):
+    \[
+    C = \frac{2 \pi \varepsilon_0 \varepsilon_r h}{\ln(D_{ext}/D_{int})}
+    \]
+    Despejando $h$:
+    \[
+    h = \frac{C \ln(D_{ext}/D_{int})}{2 \pi \varepsilon_0 \varepsilon_r}
+    \]
+    Sustituyendo valores:
+    \[
+    h = \frac{3055.63 \times \ln(8/6)}{2 \pi \times 8.854 \times 2.3} \approx 4.5 \, \text{m}
+    \]
+
+    \item Cálculo del caudal ($Q$):
+    \[
+    \frac{v^2}{2g} + h = \text{pérdidas} \implies v = \sqrt{2g \times 3} \approx 7.67 \, \text{m/s}
+    \]
+    Caudal:
+    \[
+    Q = v \times A = 7.67 \times \pi \times (0.075)^2 \approx 0.135 \, \text{m}^3/\text{s}
+    \]
+
+    \item Diferencia de tiempo en caudalímetro ultrasónico:
+    
+    Para $\theta = 45^\circ$ y $L = 0.15$ m:
+    \[
+    \Delta t = \frac{2L \cos \theta}{c^2} v = \frac{2 \times 0.15 \times \cos 45^\circ}{1770^2} \times 7.67 \approx 5.2 \, \mu \text{s}
+    \]
+\end{enumerate}
+
+\section*{Ejercicio 3: Barra magnetostrictiva e inductancia}
+
+\subsection*{Datos:}
+\begin{itemize}
+    \item Fuerzas aplicadas: 20 kN (compresión), 15 kN (tracción)
+    \item Dimensiones:
+    \begin{itemize}
+        \item Aluminio: 700 mm, $A = 700$ mm²
+        \item Bronce: 500 mm, $A = 1000$ mm²
+        \item Magnetostrictivo: 600 mm, $A = 800$ mm²
+    \end{itemize}
+    \item Propiedades magnéticas:
+    \begin{itemize}
+        \item $\mu_r$ varía linealmente de 1500 a 9800 para $\sigma = 5$ a 40 MPa
+        \item Bobina: 300 espiras
+        \item $\mu_0 = 4 \pi \times 10^{-7}$ H/m
+        \item $\mu_r$ acero = 1950
+    \end{itemize}
+\end{itemize}
+
+\subsection*{Solución:*
